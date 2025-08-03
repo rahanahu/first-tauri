@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "startp": "ng serve -c production",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -26,6 +27,7 @@
     "@angular/forms": "^20.1.0",
     "@angular/platform-browser": "^20.1.0",
     "@angular/router": "^20.1.0",
+    "@tauri-apps/api": "^2.7.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -33,6 +35,7 @@
     "@angular/build": "^20.1.4",
     "@angular/cli": "^20.1.4",
     "@angular/compiler-cli": "^20.1.0",
+    "@tauri-apps/cli": "^2.7.1",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.8.0",
     "karma": "~6.4.0",

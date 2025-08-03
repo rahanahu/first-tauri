@@ -15,6 +15,47 @@
       "request": "launch",
       "preLaunchTask": "npm: test",
       "url": "http://localhost:9876/debug.html"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Tauri Development Debug",
+      "cargo": {
+        "args": [
+          "build",
+          "--manifest-path=./src-tauri/Cargo.toml",
+          "--no-default-features"
+        ]
+      },
+      // `beforeDevCommand` のタスクを使用する場合は、`.vscode/tasks.json` で設定する必要があります。
+      "preLaunchTask": "npm: start",
+      "env": {
+        // only for windows?
+        "WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS": "--remote-debugging-port=1422"
+      }
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Tauri Production Debug",
+      "cargo": {
+        "args": ["build", "--release", "--manifest-path=./src-tauri/Cargo.toml"]
+      },
+      // `beforeBuildCommand` のタスクを使用する場合は、`.vscode/tasks.json` で設定する必要があります。
+      "preLaunchTask": "npm: startp"
+    },
+    {
+      "name": "Attach to Webview",
+      "port": 1422,
+      "request": "attach",
+      "type": "chrome",
+      "webRoot": "${workspaceFolder}"
     }
+  ],
+  "compounds": [
+    // {
+    //   "name": "Tauri dev all",
+    //   "configurations": ["Tauri Development Debug",]
+    // }
   ]
 }
